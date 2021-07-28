@@ -1,9 +1,6 @@
 package vending;
 
-import vending.product.Chocolate;
-import vending.product.Product;
-import vending.product.SaltySnack;
-import vending.product.SoftDrink;
+import vending.product.*;
 
 
 public class OverloadedVendingMachine {
@@ -11,16 +8,18 @@ public class OverloadedVendingMachine {
     private int softDrinkQty;
     private int saltySnacksQty;
     private int chocolatesQty;
+    private int muffinQty;
 
     public static void main(String[] args) {
 
     }
 
     // add a constructor like this to you OverloadedVendingMachine class
-    public OverloadedVendingMachine(int softDrinkQty, int saltySnacksQty, int chocolatesQty){
+    public OverloadedVendingMachine(int softDrinkQty, int saltySnacksQty, int chocolatesQty, int muffinQty){
         this.chocolatesQty = chocolatesQty;
         this.saltySnacksQty = saltySnacksQty;
         this.softDrinkQty = softDrinkQty;
+        this.muffinQty = muffinQty;
 
     }
 
@@ -33,7 +32,16 @@ public class OverloadedVendingMachine {
         }
     }
 
-    void buy(SaltySnack saltySnack){
+
+    public void buy(Muffin muffin){
+        if (muffin != null){
+            muffinQty--;
+        }else {
+            System.out.println("Muffin is out of stock");
+        }
+    }
+
+   public void buy(SaltySnack saltySnack){
         if (saltySnack != null){
             saltySnacksQty--;
         }else {
@@ -41,7 +49,7 @@ public class OverloadedVendingMachine {
         }
     }
 
-    void buy(Chocolate chocolate){
+   public void buy(Chocolate chocolate){
         if (chocolate != null){
             chocolatesQty--;
         }else {
@@ -49,39 +57,40 @@ public class OverloadedVendingMachine {
         }
     }
 
-    void buy(Product product){
+   public void buy(Product product){
         chocolatesQty--;
         saltySnacksQty--;
         softDrinkQty--;
+        muffinQty--;
     }
 
     // Adding stock (addstock methods)
     public void addStock(SoftDrink softdrink){
         if(softdrink != null){
             softDrinkQty++;
-        }else{
-            System.out.println("Please select your product");
         }
 
     }
 
-    void addStock(SaltySnack saltySnack){
+    public void addStock(Muffin muffin){
+        if (muffin != null){
+            muffinQty++;
+        }
+    }
+
+    public void addStock(SaltySnack saltySnack){
         if (saltySnack != null){
             saltySnacksQty++;
-        }else {
-            System.out.println("Please select your product");
         }
     }
 
-    void addStock(Chocolate chocolate){
+    public void addStock(Chocolate chocolate){
         if (chocolate != null){
             chocolatesQty++;
-        }else {
-            System.out.println("Please select your product");
         }
     }
 
-    void addStock(Product product){
+    public void addStock(Product product){
         softDrinkQty++;
         saltySnacksQty++;
         chocolatesQty++;
@@ -91,15 +100,19 @@ public class OverloadedVendingMachine {
     public int getStock(SoftDrink softdrink){
         return softDrinkQty;
     }
-    int getStock(SaltySnack saltySnack){
+
+    public int getStock(Muffin muffin){
+        return muffinQty;
+    }
+    public int getStock(SaltySnack saltySnack){
         return saltySnacksQty;
     }
-    int getStock(Chocolate chocolate){
+    public int getStock(Chocolate chocolate){
         return chocolatesQty;
     }
 
     public int getStock(){
-        int total = chocolatesQty + softDrinkQty + saltySnacksQty;
+        int total = chocolatesQty + softDrinkQty + saltySnacksQty + muffinQty;
         return total;
     }
 
