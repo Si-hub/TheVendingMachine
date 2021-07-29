@@ -1,5 +1,6 @@
-package ExtendableVendingMachine.product;
+package ExtendableVendingMachine;
 
+import ExtendableVendingMachine.product.ExtendableVendingMachine;
 import vending.product.*;
 
 public class Main {

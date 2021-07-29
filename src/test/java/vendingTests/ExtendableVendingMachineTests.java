@@ -47,7 +47,7 @@ public class ExtendableVendingMachineTests {
 
     @Test
     public void shouldBeAbleToBuyAllProducts(){
-        ExtendableVendingMachine EVM = new ExtendableVendingMachine(3, 4, 6, 2);
+        ExtendableVendingMachine EVM = new ExtendableVendingMachine(3, 3, 5, 2);
         SoftDrink softDrink = new SoftDrink();
         SaltySnack saltySnack = new SaltySnack();
         Chocolate chocolate = new Chocolate();
@@ -59,7 +59,7 @@ public class ExtendableVendingMachineTests {
         EVM.buy(softDrink,2);
         EVM.buy(muffin,1);
 
-        assertEquals(8, EVM.getStock(product));
+        assertEquals(5, EVM.getStock(product));
     }
 
 }

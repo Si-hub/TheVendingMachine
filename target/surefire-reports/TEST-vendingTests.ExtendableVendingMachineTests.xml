@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="vendingTests.OverloadedVendingMachineTest" time="0.276" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="vendingTests.ExtendableVendingMachineTests" time="0.008" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -57,9 +57,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="shouldBeAbleToAddAllProducts" classname="vendingTests.OverloadedVendingMachineTest" time="0.127"/>
-  <testcase name="shouldBeAbleToAddSaltySnackOnly" classname="vendingTests.OverloadedVendingMachineTest" time="0.007"/>
-  <testcase name="shouldBeAbleToAddChocolateOnly" classname="vendingTests.OverloadedVendingMachineTest" time="0.01"/>
-  <testcase name="shouldBeAbleToBuyAllProducts" classname="vendingTests.OverloadedVendingMachineTest" time="0.012"/>
-  <testcase name="shouldBeAbleToAddSoftDrinkOnly" classname="vendingTests.OverloadedVendingMachineTest" time="0.007"/>
+  <testcase name="shouldBeAbleToAddAllProducts" classname="vendingTests.ExtendableVendingMachineTests" time="0"/>
+  <testcase name="shouldBeAbleToAddChocolateOnly" classname="vendingTests.ExtendableVendingMachineTests" time="0"/>
+  <testcase name="shouldBeAbleToBuyAllProducts" classname="vendingTests.ExtendableVendingMachineTests" time="0"/>
+  <testcase name="shouldBeAbleToAddSoftDrinkOnly" classname="vendingTests.ExtendableVendingMachineTests" time="0"/>
 </testsuite>

@@ -1,6 +1,5 @@
 package vending;
 
-import ExtendableVendingMachine.product.ExtendableVendingMachine;
 import vending.product.Chocolate;
 import vending.product.Muffin;
 import vending.product.SaltySnack;
