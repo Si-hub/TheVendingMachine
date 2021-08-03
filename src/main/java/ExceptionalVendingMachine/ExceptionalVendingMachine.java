@@ -1,8 +1,14 @@
 package ExceptionalVendingMachine;
 
-import vending.product.Chocolate;
-import vending.product.SaltySnack;
-import vending.product.SoftDrink;
+
+import ExceptionalVendingMachine.Exceptions.ChocolatesAllGoneException;
+import ExceptionalVendingMachine.Exceptions.ProductNotFoundException;
+import ExceptionalVendingMachine.Exceptions.SaltyCracksAllEatenException;
+import ExceptionalVendingMachine.Exceptions.SoftDrinksOutOfStockException;
+import ExceptionalVendingMachine.product.Chocolate;
+import ExceptionalVendingMachine.product.Product;
+import ExceptionalVendingMachine.product.SaltySnack;
+import ExceptionalVendingMachine.product.SoftDrink;
 
 public class ExceptionalVendingMachine {
     private int SoftDrinks;
@@ -18,33 +24,59 @@ public class ExceptionalVendingMachine {
     }
 
     //buy methods
-    public void buy(SoftDrink softdrink){
-        try {
-            if (softdrink != null)
+    public void buy(Product product) throws ProductNotFoundException {
+        if (product instanceof SoftDrink) {
+            if (SoftDrinks > 0) {
                 SoftDrinks--;
-        }catch (Exception e){
-            System.out.println("Sorry!! Soft drink is out of stock");
+            } else {
+                throw new SoftDrinksOutOfStockException("Sorry!! Soft Drink is out of stock, but you can select " +
+                        "available product.");
+            }
         }
-    }
 
-    public void buy(SaltySnack saltySnack){
-        try {
-            if (saltySnack != null)
+        if (product instanceof SaltySnack) {
+            if (SaltySnacks > 0) {
                 SaltySnacks--;
-        }catch (Exception e){
-            System.out.println("Sorry!! Salty snack is out of stock");
+            } else {
+                throw new SaltyCracksAllEatenException("Sorry!! Salty snack is out of stock, but you can select " +
+                        "available product.");
+            }
+        }
+
+        if (product instanceof Chocolate) {
+            if (Chocolates > 0) {
+                Chocolates--;
+            } else {
+                throw new ChocolatesAllGoneException("Sorry!! Chocolate is out of stock , but you can select " +
+                        "available product.");
+            }
         }
     }
 
-    public void buy(Chocolate chocolate){
 
-        try {
-            if (chocolate != null)
-                Chocolates--;
-        }catch (Exception e){
-            System.out.println("Soft drink is out of stock");
+    public void addStock(Product product, int newStock) {
+        if (product instanceof Chocolate) {
+            Chocolates += newStock;
+
+        } else if (product instanceof SoftDrink) {
+            SoftDrinks += newStock;
+
+        } else if (product instanceof SaltySnack) {
+            SaltySnacks += newStock;
+
         }
+    }
 
+    public int getStock(Product product){
+        if(product instanceof SoftDrink){
+          return SoftDrinks;
+        }else if (product instanceof SaltySnack){
+           return SaltySnacks;
+        }else if (product instanceof Chocolate){
+           return Chocolates;
+        }else {
+            return SaltySnacks + SoftDrinks + Chocolates;
+        }
     }
 
 }

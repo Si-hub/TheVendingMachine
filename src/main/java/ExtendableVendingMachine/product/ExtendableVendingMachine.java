@@ -1,5 +1,6 @@
 package ExtendableVendingMachine.product;
 
+
 import vending.product.*;
 
 public class ExtendableVendingMachine {
